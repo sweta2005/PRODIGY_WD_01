@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Navigation Menu</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+
+        /* Navigation Menu Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff33c2, #ffffff6b, #790888);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(90deg, #087588, #ffffff38, #ff333d);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        .navbar a:hover::before {
+            left: 0;
+        }
+
+        .navbar a.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: black;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Spacer for Content */
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            height: 2000px;
+        }
+
+        .content h1 {
+            text-align: center;
+            color: #34495e;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .content p {
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin: 0 10%;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(90deg, #24cf3b, #ffffff93, #339cff);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="content">
+        <h1> Welcome to My Webpage</h1>
+        <p>This is made By Sweta ,Using Generative ai .</p>
+
+    <footer class="footer">
+        Made by Sweta
+    </footer>
+
+    <script>
+        // Select the navigation bar
+        const navbar = document.getElementById('navbar');
+
+        // Add an event listener for the scroll event
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
